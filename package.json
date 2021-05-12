@@ -2,9 +2,10 @@
   "name": "kraken",
   "version": "1.0.0",
   "description": "Assistant, that can help you calculate your trading investitions by the grid system",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -14,12 +15,15 @@
     "trading",
     "binance",
     "grid",
-    "electon"
+    "electron"
   ],
   "author": "VladyslavHimself <vladyslavhimself@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/VladyslavHimself/kraken/issues"
   },
-  "homepage": "https://github.com/VladyslavHimself/kraken#readme"
+  "homepage": "https://github.com/VladyslavHimself/kraken#readme",
+  "devDependencies": {
+    "electron": "^12.0.7"
+  }
 }
