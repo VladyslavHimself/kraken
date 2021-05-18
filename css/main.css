@@ -53,6 +53,11 @@ body {
   background-color: #fff;
 }
 
+.menu .profit {
+  margin-top: 20px;
+  margin-left: 55px !important;
+}
+
 .profit {
   width: 500px;
   height: 150px;
@@ -101,6 +106,7 @@ body {
 .dataInput input {
   border: none;
   outline: none;
+  font-size: 12px;
 }
 .dataInput input:focus {
   outline: 2px solid #7289DA;
@@ -126,11 +132,44 @@ body {
   align-items: center;
   font-style: normal;
   font-weight: normal;
-  font-size: 10px;
+  font-size: 14px;
   line-height: 12px;
+  cursor: pointer !important;
   color: #fff;
   width: 70px;
   height: 25px;
   background: #7289DA;
+  transition: 0.3s ease;
+}
+.button:hover {
+  background: #5b6cac;
+}
+
+.lines {
+  margin-top: 20px;
+  width: 600px;
+  height: 210px;
+}
+
+.line {
+  transition: 0.3s ease;
+  margin-top: 15px;
+  width: inherit;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.line__data {
+  display: flex;
+  justify-content: space-around;
+}
+.line__profit {
+  color: #1BC099;
+}
+.line__hr {
+  width: 600px;
+  height: 2px;
+  background-color: #7289DA;
 }
 /*# sourceMappingURL=main.css.map */

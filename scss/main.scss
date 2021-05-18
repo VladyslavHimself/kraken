@@ -91,6 +91,10 @@ body {
 //  profit
 
 .menu {
+    .profit {
+        margin-top: 20px;
+        margin-left: 55px !important;
+    }
 
 }
 
@@ -154,6 +158,7 @@ margin-top: 50px;
         &:focus {
             outline: 2px solid $complimentary;
         }
+        font-size: 12px;
     }
 
     
@@ -186,11 +191,64 @@ margin-top: 50px;
 
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 14px;
     line-height: 12px;
+
+    cursor: pointer !important;
 
     color: #fff;
     width: 70px;
     height: 25px;
     background: #7289DA;
+    transition: .3s ease;
+
+    &:hover {
+        background: #5b6cac;
+        
+    }
+}
+
+
+// Lines
+
+.lines {
+
+    margin-top: 20px;
+    // border: 1px solid red;
+    width: 600px;
+    height: 210px;
+}
+.line {
+    transition: .3s ease;
+    margin-top: 15px;
+    width: inherit;
+
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: flex-end;
+    // align-items: center;
+		&__data {
+            display: flex;
+            justify-content: space-around;
+            
+		}
+
+		&__numberOfLine {
+		}
+
+		&__iterator {
+		}
+
+		&__profit {
+            color: #1BC099;
+		}
+
+		&__hr {
+            width: 600px;
+            height: 2px;
+
+            background-color: $complimentary;
+		}
 }
