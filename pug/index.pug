@@ -10,6 +10,40 @@ html(lang="en")
         link(rel="stylesheet", href="css/main.css")
     body 
         .wrapper
-            p Hello World :)
+            .navigation
+                .navigation__name Krak3n
+                .navigation__close
+            
+            .menu
+                .profit
+                    .profit__title Profit
+                    .profit__counter 0.00$
+                .userCommandler
+                    .dataInput
+                        .dataInput__field
+                            .dataInput__short
+                                input(type="text" placeholder=" Enter your amount of lines") 
+                            .dataInput__long
+                                input(type="text" placeholder=" Were are you sell position?") 
+                        .button Apply
+                    hr
+                
+                //- .lines
+                //-     .line
+                //-         .line__data
+                //-             .line__numberOfLine
+                //-                 p Line
+                //-                 .line__iterator 1
+                //-             .dataInput
+                //-                 .dataInput__field
+                //-                     .dataInput__short
+                //-                     .dataInput__long
+                //-                 .button
+                //-             .line__profit
+
+                //-         .line__hr
+
+
+                        
 
         script(src="js/source.js") 

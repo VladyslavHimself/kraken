@@ -5,10 +5,18 @@ $gray: #99AAB5;
 $white: #fff;
 $complimentary: #7289DA;
 
+// fonts 
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+
+    &::selection {
+        background-color: rgba(0, 0, 0, 0.25);
+    }
 }
 
 
@@ -23,4 +31,166 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    
+}
+
+// navigation
+.navigation {
+
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100px;
+
+
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+
+    &__name {
+
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -5%);
+
+        color: #f4f4f4; 
+        text-transform: uppercase;
+        // align-self: flex-start;
+    }
+
+    &__close {
+
+        width: 30px;
+        height: 30px;
+        
+        margin-right: 50px;
+        border-radius: 250px;
+        border: 3px solid #fff;
+
+        cursor: pointer !important;
+        &:hover {
+
+            border-radius: 0px;
+            background-color: #fff;
+            
+
+        }
+
+        transition: .3s ease;
+    }
+}
+
+//  profit
+
+.menu {
+
+}
+
+.profit {
+    width: 500px;
+    height: 150px;
+
+    background: #2C2F33;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    position: relative;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__title {
+        
+        position: absolute;
+        top: 0;
+        margin-top: 15px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        color: #99AAB5;
+
+    }
+    &__counter {
+
+
+        font-family: Rubik;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 64px;
+        line-height: 76px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #7289DA;
+    }
+}
+
+.userCommandler {
+margin-top: 50px;
+}
+.dataInput {
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    input {
+        border: none;
+        outline: none;
+        &:focus {
+            outline: 2px solid $complimentary;
+        }
+    }
+
+    
+    &__field {
+        display: flex;
+        
+    }
+    &__short {
+        input {
+            width: 175px;
+            height: 25px;
+
+        }
+
+    }
+    &__long {
+        input {
+            width: 184px;
+            height: 25px;
+        }
+        margin-left: 10px;
+    }
+}
+
+.button {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+
+    color: #fff;
+    width: 70px;
+    height: 25px;
+    background: #7289DA;
 }
