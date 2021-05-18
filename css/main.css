@@ -15,7 +15,7 @@ body {
 
 .wrapper {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,6 +149,7 @@ body {
   margin-top: 20px;
   width: 600px;
   height: 210px;
+  overflow-y: auto;
 }
 
 .line {
