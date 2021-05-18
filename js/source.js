@@ -50,30 +50,6 @@ setSettingsBtn.addEventListener('click', () => {
 
     // add n lines to the lines container
 
-    
-        // let lineTemplate = `
-        // <div class="line">
-        //     <div class="line__data">
-        //       <div class="line__numberOfLine">
-        //         <div class="line__iterator">Line ${i}</div>
-        //       </div>
-        //       <div class="dataInput">
-        //         <div class="dataInput__field">
-        //           <div class="dataInput__short">
-        //             <input type="text" placeholder=" Currently value of crypto...">
-        //           </div>
-        //           <div class="dataInput__long">
-        //             <input type="text" placeholder=" How much you want to spent? (USDT)">
-        //           </div>
-        //         </div>
-        //         <div class="button">Apply</div>
-        //       </div>
-        //       <div class="line__profit"></div>
-        //     </div>
-        //     <div class="line__hr"></div>
-        //   </div>
-        // `
-
         for (let i = 1; i <= linesAmount; i++) {
             let lineTemplate = `
             <div class="line">
@@ -84,7 +60,7 @@ setSettingsBtn.addEventListener('click', () => {
                   <div class="dataInput">
                     <div class="dataInput__field">
                       <div class="dataInput__short">
-                        <input type="text" placeholder=" Currently value of crypto...">
+                        <input type="text" placeholder=" Value of crypto...">
                       </div>
                       <div class="dataInput__long">
                         <input type="text" placeholder=" How much you want to spent? (USDT)">
@@ -100,7 +76,8 @@ setSettingsBtn.addEventListener('click', () => {
             linesContainer.innerHTML += lineTemplate;
             
         }
-
+    
+    // read data from lines
 
 
 
