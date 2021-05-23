@@ -33,19 +33,17 @@ let isSettingsApplied = false;
 
 setSettingsBtn.addEventListener('click', () => {
 
-    if(!isSettingsApplied) {
+      // read data from user inputs
+      let linesAmount = lines.childNodes[1].value;
+      let sellPos = parseFloat(sellPosition.childNodes[1].value);
 
-    // read data from user inputs
-    let linesAmount = lines.childNodes[1].value;
-    let sellPos = parseFloat(sellPosition.childNodes[1].value);
+      console.log(`Lines: ${linesAmount}, Sell Position: ${sellPos}`);
 
-    console.log(`Lines: ${linesAmount}, Sell Position: ${sellPos}`);
+      // set settings to disabled mode
+      disableInputs(lines, sellPosition)
 
-    // set settings to disabled mode
-    disableInputs(lines, sellPosition)
-
-    // convert color palette for button
-    convertButtonColor(setSettingsBtn, '#7289DA', '#fff');
+      // convert color palette for button
+      convertButtonColor(setSettingsBtn, '#7289DA', '#fff');
 
 
     // add n lines to the lines container
@@ -74,16 +72,35 @@ setSettingsBtn.addEventListener('click', () => {
               </div>
             `
             linesContainer.innerHTML += lineTemplate;
-            
-        }
-    
+
+
     // read data from lines
 
+        let lineArr = document.querySelectorAll('.line'),
+            liness = document.querySelector('.lines');
 
 
-    // change switcher
-    isSettingsApplied = true;
+          // collect data from user
+        lineArr.forEach(line => {
+          line.addEventListener('click', e => readDataFromLines(e));
+        });
+
+
+        
 
     }
 
-});
+}, {once: true});
+
+
+function readDataFromLines(e) {
+  if (e.target.classList.contains('button')) {
+
+    let fixedTarget = e.target.parentNode;
+
+    let cryptoValue = fixedTarget.childNodes[1].firstElementChild.firstElementChild.value;
+    let USDTValue = fixedTarget.childNodes[1].lastElementChild.firstElementChild.value;
+    
+    console.log(`${cryptoValue} : ${USDTValue}`)
+  }
+}
