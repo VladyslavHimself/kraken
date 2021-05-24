@@ -24,7 +24,7 @@ function disableInputs(fstInput, scndInput, ...other) {
     scndInput.childNodes[1].setAttribute('disabled', 'disabled');
 }
 
-function convertButtonColor(name, color, bgColor) {
+function convertButtonColor(name, color = '#7289DA', bgColor = '#fff') {
     name.style.color = color;
     name.style.backgroundColor = bgColor;
 }
@@ -37,6 +37,7 @@ setSettingsBtn.addEventListener('click', () => {
       let linesAmount = lines.childNodes[1].value;
       let sellPos = parseFloat(sellPosition.childNodes[1].value);
 
+      // Apply Settings monitor
       console.log(`Lines: ${linesAmount}, Sell Position: ${sellPos}`);
 
       // set settings to disabled mode
@@ -96,11 +97,23 @@ setSettingsBtn.addEventListener('click', () => {
 function readDataFromLines(e) {
   if (e.target.classList.contains('button')) {
 
+    // declare variables
     let fixedTarget = e.target.parentNode;
-
     let cryptoValue = fixedTarget.childNodes[1].firstElementChild.firstElementChild.value;
     let USDTValue = fixedTarget.childNodes[1].lastElementChild.firstElementChild.value;
     
+    // Monitor offers
     console.log(`${cryptoValue} : ${USDTValue}`)
+  
+    // save data to sessionStorage
+    sessionStorage.setItem(cryptoValue, USDTValue);
+    
+    // change visual view
+    convertButtonColor(e.target, '#fff', '#ccc');
+    e.target.innerHTML = 'Applied';
+    
   }
 }
+
+
+// #TODO Optimize all this 'code'
