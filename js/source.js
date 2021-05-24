@@ -10,14 +10,10 @@ document.body.appendChild(windowTopBar)
 
 // main
 
-const profitCounter = document.querySelector('.profit__counter'),
-      lines = document.getElementById('linesAmount'),
+const lines = document.getElementById('linesAmount'),
       sellPosition = document.getElementById('sellPosition'),
       setSettingsBtn = document.querySelector('.userCommandler .dataInput .button'),
       linesContainer = document.querySelector('.lines');
-
-
-
 
 function disableInputs(fstInput, scndInput, ...other) {
     fstInput.childNodes[1].setAttribute('disabled', 'disabled');
@@ -80,10 +76,11 @@ setSettingsBtn.addEventListener('click', () => {
         let lineArr = document.querySelectorAll('.line'),
             liness = document.querySelector('.lines');
 
+            
 
           // collect data from user
         lineArr.forEach(line => {
-          line.addEventListener('click', e => readDataFromLines(e));
+          line.addEventListener('click', e => readDataFromLines(e, line));
         });
 
 
@@ -94,19 +91,32 @@ setSettingsBtn.addEventListener('click', () => {
 }, {once: true});
 
 
-function readDataFromLines(e) {
+function readDataFromLines(e, line) {
   if (e.target.classList.contains('button')) {
 
     // declare variables
-    let fixedTarget = e.target.parentNode;
-    let cryptoValue = fixedTarget.childNodes[1].firstElementChild.firstElementChild.value;
-    let USDTValue = fixedTarget.childNodes[1].lastElementChild.firstElementChild.value;
+    const fixedTarget = e.target.parentNode,
+          cryptoValue = fixedTarget.childNodes[1].firstElementChild.firstElementChild.value,
+          USDTValue = fixedTarget.childNodes[1].lastElementChild.firstElementChild.value;
     
     // Monitor offers
     console.log(`${cryptoValue} : ${USDTValue}`)
   
     // save data to sessionStorage
-    sessionStorage.setItem(cryptoValue, USDTValue);
+    // sessionStorage.setItem(cryptoValue, USDTValue);
+
+    // calculate how much coins we have
+    let coins = USDTValue / cryptoValue;
+
+    // calculate profit
+
+    let sell = parseFloat(sellPosition.childNodes[1].value);
+    
+    let lineProfit = coins * sell;
+        lineProfit = (Math.round(lineProfit)) / 10; 
+
+    line.childNodes[1].lastElementChild.innerHTML = `+ ${lineProfit}`;
+    console.log(coins);
     
     // change visual view
     convertButtonColor(e.target, '#fff', '#ccc');
@@ -116,4 +126,6 @@ function readDataFromLines(e) {
 }
 
 
-// #TODO Optimize all this 'code'
+// #TODO Optimize all this 'code' to normal view
+// #TODO Check all calculating formula
+// #TODO Add General profit
