@@ -1,3 +1,5 @@
+// NOTE Kod sdelan na kolenke v spehshke, poetomy code optimization plohoi( netu )
+
 // draggable menu
 let windowTopBar = document.createElement('div')
 windowTopBar.style.width = "100%"
@@ -27,10 +29,11 @@ function convertButtonColor(name, color = '#7289DA', bgColor = '#fff') {
 
 let isSettingsApplied = false;
 
+let linesAmount;
 setSettingsBtn.addEventListener('click', () => {
 
       // read data from user inputs
-      let linesAmount = lines.childNodes[1].value;
+      linesAmount = lines.childNodes[1].value;
       let sellPos = parseFloat(sellPosition.childNodes[1].value);
 
       // Apply Settings monitor
@@ -84,16 +87,21 @@ setSettingsBtn.addEventListener('click', () => {
         });
 
 
+        // display general profit
+        
+
+
+
         
 
     }
 
 }, {once: true});
-
-
+let profitList = [];
+let eventCounter = 0;
 function readDataFromLines(e, line) {
   if (e.target.classList.contains('button')) {
-
+    
     // declare variables
     const fixedTarget = e.target.parentNode,
           cryptoValue = fixedTarget.childNodes[1].firstElementChild.firstElementChild.value,
@@ -115,6 +123,7 @@ function readDataFromLines(e, line) {
     let lineProfit = coins * sell;
         lineProfit = (Math.round(lineProfit)) / 10; 
 
+        profitList.push(lineProfit);
     line.childNodes[1].lastElementChild.innerHTML = `+ ${lineProfit}`;
     console.log(coins);
     
@@ -122,10 +131,23 @@ function readDataFromLines(e, line) {
     convertButtonColor(e.target, '#fff', '#ccc');
     e.target.innerHTML = 'Applied';
     
+    console.log(linesAmount);
+    console.log(eventCounter)
+    console.log(profitList);
+    eventCounter++;
+    if(eventCounter >= linesAmount) {
+      console.log('all buttons pressed!')
+
+      let generalProfit = document.querySelector('.profit__counter');
+      let gProfitValue = 0;
+      profitList.forEach(e => {
+        gProfitValue += e;
+      });
+      generalProfit.innerHTML = `${gProfitValue}$`;
+    }
   }
 }
 
 
+
 // #TODO Optimize all this 'code' to normal view
-// #TODO Check all calculating formula
-// #TODO Add General profit
