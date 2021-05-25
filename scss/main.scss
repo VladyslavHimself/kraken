@@ -219,6 +219,7 @@ margin-top: 50px;
     height: 210px;
 
     overflow-y: auto;
+    overflow-x: hidden;
 }
 .line {
     transition: .3s ease;
@@ -245,6 +246,7 @@ margin-top: 50px;
 
 		&__profit {
             color: #1BC099;
+            margin-right: 20px;
 		}
 
 		&__hr {

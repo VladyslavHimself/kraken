@@ -150,6 +150,7 @@ body {
   width: 600px;
   height: 210px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .line {
@@ -167,6 +168,7 @@ body {
 }
 .line__profit {
   color: #1BC099;
+  margin-right: 20px;
 }
 .line__hr {
   width: 600px;
